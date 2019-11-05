@@ -1,38 +1,70 @@
-'use strict'
-
 module.exports = {
-    // https://github.com/eslint/eslint/issues/11888
-    root: false,
-    parserOptions: {
-        ecmaVersion: 6
+    "env": {
+        "browser": true,
+        "es6": true,
     },
-    env: {
-        node: true,
-        mocha: true
+    "extends": [
+        "vue",
+        'plugin:vue/recommended' // or 'plugin:vue/base'
+    ],
+    "plugins": [
+        "vue"
+    ],
+    globals: {
+        Bus: false,
+        RemoteErrors: false,
+        _: false,
+        Message: false,
+        moduleEnabled: false,
+        Alert: false
     },
-    extends: [
-        'plugin:eslint-plugin/recommended',
-        'plugin:vue-libs/recommended'
-    ],
-    plugins: [
-        'eslint-plugin'
-    ],
-    rules: {
-        'eslint-plugin/report-message-format': ['error', '^[A-Z`\'{].*\\.$'],
-        'eslint-plugin/prefer-placeholders': 'error',
-        'eslint-plugin/consistent-output': 'error',
-        'no-mixed-operators': 'error'
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            2,
+            { "SwitchCase": 1 }
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "camelcase": [
+            "error",
+            { "properties": "never" }
+        ],
+        "vue/max-attributes-per-line": [
+            "error",
+            { "singleline": 2 }
+        ],
+        "vue/order-in-components": ["error", {
+            "order": [
+                "el",
+                "name",
+                "parent",
+                "functional",
+                ["delimiters", "comments"],
+                ["components", "directives", "filters"],
+                "extends",
+                "mixins",
+                "inheritAttrs",
+                "model",
+                ["props", "propsData"],
+                "data",
+                "computed",
+                "watch",
+                "methods",
+                "LIFECYCLE_HOOKS",
+                ["template", "render"],
+                "renderError"
+            ]
+        }]
     },
 
-    overrides: [{
-        files: ['lib/rules/*.js'],
-        rules: {
-            "consistent-docs-description": "error",
-            "no-invalid-meta": "error",
-            'eslint-plugin/require-meta-type': 'error',
-            "require-meta-docs-url": ["error", {
-                "pattern": `https://eslint.vuejs.org/rules/{{name}}.html`
-            }]
-        }
-    }]
-}
+};
