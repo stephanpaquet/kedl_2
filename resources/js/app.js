@@ -1,5 +1,10 @@
+/* global Vue */
+
 require('./bootstrap')
 window.Vue = require('vue')
+import axios from 'axios'
+
+Vue.prototype.$http = axios
 
 import vuetify from './vuetify/index'
 
