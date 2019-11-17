@@ -29,3 +29,6 @@ php artisan serve
 
 http://127.0.0.1:8000
 
+## TODO
+- Utilisation du vuex pour loader la session
+- Faire en sorte que les component utilisent tous le store

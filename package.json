@@ -34,6 +34,7 @@
     },
     "dependencies": {
         "vue-drag-resize": "^1.3.2",
-        "vuetify": "^2.1.9"
+        "vuetify": "^2.1.9",
+        "vuex": "^3.1.2"
     }
 }
